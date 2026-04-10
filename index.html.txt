@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oak & Crafts</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body { margin:0; font-family:'Poppins', sans-serif; background:#f4efe8; color:#2d2d2d; }
+
+/* NAV */
+nav {
+  display:flex; justify-content:space-between;
+  padding:20px 40px; background:rgba(0,0,0,0.7);
+  position:fixed; width:100%; z-index:1000;
+}
+nav h2 { color:#fff; font-family:'Playfair Display'; }
+nav a { color:#fff; margin-left:20px; text-decoration:none; }
+
+/* HERO */
+.hero {
+  height:100vh;
+  background:url('https://via.placeholder.com/1600x900') center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; color:#fff;
+}
+.hero h1 { font-size:50px; font-family:'Playfair Display'; }
+.btn { padding:12px 25px; background:#8b5e3c; color:#fff; border:none; cursor:pointer; }
+
+/* SECTION */
+.section { padding:80px 40px; text-align:center; }
+h2 { font-family:'Playfair Display'; }
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.card {
+  background:#fff; padding:20px;
+  border-radius:10px; transition:0.3s;
+}
+.card:hover { transform:translateY(-10px); }
+img { width:100%; border-radius:10px; }
+
+/* SLIDER */
+.slider { max-width:800px; margin:auto; position:relative; }
+.slider img { width:100%; border-radius:10px; }
+.slider-buttons {
+  position:absolute; top:50%; width:100%;
+  display:flex; justify-content:space-between;
+}
+.slider-buttons button {
+  background:rgba(0,0,0,0.5); color:#fff;
+  border:none; padding:10px; cursor:pointer;
+}
+
+/* FOOTER */
+footer {
+  background:#2d2d2d; color:#fff;
+  padding:40px; text-align:center;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position:fixed; bottom:20px; right:20px;
+  background:#25D366; padding:15px;
+  border-radius:50%; color:#fff; text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>Oak & Crafts</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#collections">Collections</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div>
+    <h1>Crafted in Wood. Made for Life.</h1>
+    <p>Timeless Tamilian Woodcraft & Heritage Designs</p>
+    <a href="https://wa.me/91XXXXXXXXXX"><button class="btn">Enquire Now</button></a>
+  </div>
+</section>
+
+<section class="section" id="collections">
+  <h2>Our Collections</h2>
+  <div class="grid">
+    <div class="card"><h3>Furniture</h3></div>
+    <div class="card"><h3>Crafts & Carvings</h3></div>
+    <div class="card"><h3>Chettinad Doors</h3></div>
+    <div class="card"><h3>Royal Mirrors</h3></div>
+  </div>
+</section>
+
+<!-- IMAGE SLIDER -->
+<section class="section">
+  <h2>Our Craftsmanship</h2>
+  <div class="slider">
+    <img id="slide" src="https://via.placeholder.com/800x400">
+    <div class="slider-buttons">
+      <button onclick="prevSlide()">❮</button>
+      <button onclick="nextSlide()">❯</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <h2>Gallery</h2>
+  <div class="grid">
+    <img src="https://via.placeholder.com/300">
+    <img src="https://via.placeholder.com/300">
+    <img src="https://via.placeholder.com/300">
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>Our Story</h2>
+  <p>We revive traditional Tamilian woodcraft with timeless designs.</p>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p>Pondicherry | +91 XXXXXXXX</p>
+
+  <a href="https://wa.me/91XXXXXXXXXX">
+    <button class="btn">Chat on WhatsApp</button>
+  </a>
+
+  <!-- GOOGLE MAP -->
+  <div style="margin-top:20px;">
+    <iframe 
+      src="https://www.google.com/maps?q=Pondicherry&output=embed"
+      width="100%" height="300"
+      style="border:0;border-radius:10px;">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  <p>© Oak & Crafts</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">💬</a>
+
+<script>
+let images = [
+  "https://via.placeholder.com/800x400",
+  "https://via.placeholder.com/800x400",
+  "https://via.placeholder.com/800x400"
+];
+
+let index = 0;
+
+function showSlide() {
+  document.getElementById("slide").src = images[index];
+}
+
+function nextSlide() {
+  index = (index + 1) % images.length;
+  showSlide();
+}
+
+function prevSlide() {
+  index = (index - 1 + images.length) % images.length;
+  showSlide();
+}
+
+setInterval(nextSlide, 3000);
+</script>
+
+</body>
+</html>
